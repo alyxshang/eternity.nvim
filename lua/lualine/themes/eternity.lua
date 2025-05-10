@@ -5,9 +5,27 @@
 -- color palette.
 local palette = require("palette")
 
+-- Importing any configuration
+-- options set by the user.
+local config = require("eternity")
+
+-- Defining a default
+-- for the transparency
+-- setting.
+local trans = false
+
+-- Loading the configured
+-- transparency setting if
+-- any.
+if config.transparent then
+  trans = true
+else
+  trans = false
+end
+
 -- Defining a single variable
--- for the color palette.
-local pal = palette.palette
+-- for the palette.
+local pal = palette.palette(trans).palette
 
 -- Returning the Lua
 -- table that the

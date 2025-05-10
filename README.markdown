@@ -32,10 +32,19 @@ This colorscheme supports some popular Neovim plugins and a list of these plugin
 return {
   'alyxshang/eternity.nvim',
   dependencies = {
-    'alyxshang/guizhong.nvim'
+    {
+        'alyxshang/guizhong.nvim',
+        version = "v.0.2.0"
+    }
   },
   config = function()
+
+    -- Setting the transparency setting.
+    -- Can be set to "true" or "false".
+
+    require("eternity").setup({ transparent = true })
     vim.cmd.colorscheme("eternity")
+
   end
 }
 ```
@@ -46,6 +55,10 @@ return {
 
 - Initial release.
 - Upload to GitHub.
+
+### Version 0.2.0
+
+- Added support for making different UI elements transparent.
 
 ## NOTE :scroll:
 

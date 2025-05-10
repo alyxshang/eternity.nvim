@@ -5,6 +5,10 @@
 -- this plugin is imported.
 local palette = require("palette")
 
+-- Importing any configuration
+-- options set by the user.
+local config = require("eternity")
+
 -- Importing the "setHighlights"
 -- function.
 local engine = require("guizhong")
@@ -20,7 +24,13 @@ vim.api.nvim_create_autocmd(
   {
     pattern = "eternity",
     callback = function()
-      engine.setHighlights(palette.palette)
+      local transparent = false
+      if config.transparent then
+        transparent = true
+      else
+        transparent = false
+      end
+      engine.setHighlights(palette.palette(transparent).palette)
     end
   }
 )
